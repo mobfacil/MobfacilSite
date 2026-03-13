@@ -3,13 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { MenuIcon, OrbitIcon } from 'lucide-react';
-import { Button } from 'components/shared/ui/button';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/shared/ui/sheet';
+import { Button } from '@/components/shared/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/shared/ui/sheet';
 import clsx from 'clsx';
+
+import logo from '@/src/images/logo_mobfacil.png';
 
 /**
  * A component that renders the navigation bar for the landing page.
@@ -54,10 +52,12 @@ export const LandingHeader = ({
           <div className="flex items-center gap-3 justify-between">
             {logoComponent || (
               <>
-                <OrbitIcon className="h-8 w-8 text-primary-900 dark:text-primary-100" />
-
-                <div className="hidden text-2xl font-semibold font-display sm:flex gap-2 h-full">
-                  Page <span className="font-bold">UI</span>
+                <div className="hidden sm:flex h-8 w-32 items-center overflow-hidden">
+                  <img
+                    src={logo.src}
+                    alt="MobFacil Logo"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
               </>
             )}
