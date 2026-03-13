@@ -1,4 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
+import techVector from '@/src/images/tech_vector.png';
+import { Button } from '@/components/shared/ui/button';
+import { LandingPrimaryImageCtaSection, LandingPrimaryTextCtaSection } from '@/components/landing/cta/LandingPrimaryCta';
 
 export interface HeroProps {
   headline: string;
@@ -7,13 +11,25 @@ export interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ headline, subtext }) => {
   return (
-    <section className="bg-background text-white py-24 flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-bold text-center max-w-3xl mb-6 leading-tight">
-        {headline}
-      </h1>
-      <p className="text-lg text-gray-300 text-center max-w-xl mb-10">{subtext}</p>
-      <div className="w-full max-w-2xl h-64 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 opacity-80 flex items-center justify-center">
-        <span className="text-2xl text-white/60">[Dashboard/Imagem Mockada]</span>
+    <section className="bg-background text-white py-12 h-[100dvh]">
+      <div className="max-w-7xl mx-auto px-6 flex h-full items-center justify-center lg:justify-between">
+        <LandingPrimaryTextCtaSection
+          titleComponent={
+            <h1 className="font-normal text-2xl md:text-3xl lg:text-6xl leading-tight md:max-w-2xl">
+              Otimize suas{' '}
+              <span className="font-semibold underline decoration-primary-500 decoration-4 decoration-wavy">
+                vendas
+              </span><br/>
+              com confiança e segurança
+            </h1>
+          }
+          description="Utilize dados públicos e inteligência analítica para avaliar risco de crédito com mais precisão e menos inadimplência."
+          textPosition="center"
+        >
+          <Button size="xl" asChild>
+            <a href="#">Iniciar Teste Gratuito</a>
+          </Button>
+        </LandingPrimaryTextCtaSection>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
-import { clsx } from 'clsx';
-import { Button } from 'components/shared/ui/button';
+import clsx from 'clsx';
+import { Button } from '@/components/shared/ui/button';
 import Link from 'next/link';
 
 /**
@@ -45,8 +45,8 @@ export const LandingHeaderMenuItem = ({
       className={clsx(
         'transition-colors font-medium',
         variant === 'primary'
-          ? 'text-black dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-500'
-          : 'text-black dark:text-gray-200 hover:text-secondary-500 dark:hover:text-secondary-500',
+          ? 'text-white dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-500'
+          : 'text-white dark:text-gray-200 hover:text-secondary-500 dark:hover:text-secondary-500',
         className,
       )}
       onClick={onClick}
