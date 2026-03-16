@@ -10,19 +10,19 @@ export interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ links }) => {
   return (
-    <LandingHeader>
+    <LandingHeader fixed withBackground>
       <LandingHeaderMenuItem
-        href="#"
+        href="#hero"
         label="Home"
       />
 
       <LandingHeaderMenuItem
-        href="#"
+        href="#features"
         label="Serviços"
       />
 
       <LandingHeaderMenuItem
-        href="#"
+        href="#testimonials"
         label="Clientes"
       />
     </LandingHeader>

@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { Button } from '@/components/shared/ui/button';
 import Link from 'next/link';
 
 /**
@@ -10,7 +9,6 @@ export const LandingHeaderMenuItem = ({
   href = '#',
   label = '',
   type = 'link',
-  onClick,
   variant = 'primary',
   className,
   children,
@@ -18,24 +16,13 @@ export const LandingHeaderMenuItem = ({
   href?: string;
   label?: string | React.ReactNode;
   type?: 'button' | 'link' | 'icon-button';
-  onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'ghost';
   className?: string;
   children?: React.ReactNode;
 }) => {
   if (type === 'button' || type === 'icon-button') {
     return (
-      <Button
-        asChild
-        onClick={onClick}
-        variant={variant}
-        className={clsx(
-          type === 'icon-button' && 'rounded-full p-2',
-          className,
-        )}
-      >
         <Link href={href}>{label}</Link>
-      </Button>
     );
   }
 
@@ -49,7 +36,6 @@ export const LandingHeaderMenuItem = ({
           : 'text-white dark:text-gray-200 hover:text-secondary-500 dark:hover:text-secondary-500',
         className,
       )}
-      onClick={onClick}
     >
       {children || label}
     </Link>
