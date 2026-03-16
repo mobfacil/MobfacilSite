@@ -26,9 +26,9 @@ const Hero: React.FC<HeroProps> = ({ headline, subtext }) => {
           description="Utilize dados públicos e inteligência analítica para avaliar risco de crédito com mais precisão e menos inadimplência."
           textPosition="center"
         >
-          <Button size="xl" asChild>
+          {/* <Button size="xl" asChild>
             <a href="#">Iniciar Teste Gratuito</a>
-          </Button>
+          </Button> */}
         </LandingPrimaryTextCtaSection>
       </div>
     </section>
