@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useMemo, useState, cloneElement } from 'react';
+import React, { createContext, useContext, useMemo, useState, cloneElement, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
 
@@ -77,6 +77,18 @@ export type SheetContentProps = {
 
 export const SheetContent = ({ children, side = 'right', className }: SheetContentProps) => {
   const { open, setOpen } = useSheetContext();
+  const [entered, setEntered] = useState(false);
+
+  useEffect(() => {
+    if (!open) {
+      setEntered(false);
+      return;
+    }
+
+    // Trigger enter transition on mount so panel slides into view.
+    const id = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(id);
+  }, [open]);
 
   if (!open) return null;
 
@@ -87,9 +99,15 @@ export const SheetContent = ({ children, side = 'right', className }: SheetConte
         role="dialog"
         aria-modal="true"
         className={clsx(
-          'relative h-full w-80 max-w-[80vw] bg-white dark:bg-neutral-950 shadow-2xl p-6 overflow-y-auto',
+          'relative h-full w-80 max-w-[80vw] shadow-2xl p-6 overflow-y-auto bg-[#03092B] border-[#5FD23C] rounded-lg',
+          'transform transition-transform duration-300 ease-out will-change-transform',
+          entered
+            ? 'translate-x-0'
+            : side === 'right'
+              ? 'translate-x-full'
+              : '-translate-x-full',
           side === 'right' ? 'ml-auto rounded-l-2xl' : 'mr-auto rounded-r-2xl',
-          className,
+          className ?? 'bg-white dark:bg-neutral-950',
         )}
       >
         {children}
